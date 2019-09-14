@@ -52,8 +52,27 @@ const followersArray = [];
     <p>Bio: {users bio}</p>
   </div>
 </div>
-
 */
+function createCard (data){
+const newCard = document.createElement('div');
+const userImg = document.createElement('img');
+const cardInfo = document.createElement('div');
+const name = document.createElement('h3');
+const userName = document.createElement('p');
+const userLocation = document.createElement('p');
+const userProfile = document.createElement('p');
+const userLink = document.createElement('a');
+const userFollowers = document.createElement('p');
+const userFollowing = document.createElement('p');
+const userBio = document.createElement('p');
+
+
+
+
+return newCard;
+
+};
+
 
 /* List of LS Instructors Github username's: 
   tetondan
