@@ -4,10 +4,13 @@
 */
 axios.get('https://api.github.com/users/shafi2019')
 
-.then((response) => {
+.then(response => {
   console.log(response);
+
+  const newCard = createCard(response.data);
+  profile.appendChild(newCard);
 })
-.catch((error) => {
+.catch(error => {
   console.log(error);
 })
 
@@ -53,10 +56,12 @@ const followersArray = [];
   </div>
 </div>
 */
+const profile = document.querySelector('.cards')
+
 function createCard (data){
  
 // crearting elements //
-const newCard = document.createElement('div');
+const card = document.createElement('div');
 const userImg = document.createElement('img');
 const cardInfo = document.createElement('div');
 const name = document.createElement('h3');
@@ -69,8 +74,9 @@ const userFollowing = document.createElement('p');
 const userBio = document.createElement('p');
 
 // attaching Elements //
-newCard.appendChild(userImg);
-newCard.appendChild(cardInfo);
+profile.appendChild(card);
+card.appendChild(userImg);
+card.appendChild(cardInfo);
 cardInfo.appendChild(name);
 cardInfo.appendChild(userName);
 cardInfo.appendChild(userLocation);
@@ -81,14 +87,26 @@ cardInfo.appendChild(userFollowing);
 cardInfo.appendChild(userBio);
 
 // adding classes //
-newCard.classList.add('card');
+card.classList.add('card');
 cardInfo.classList.add('card-info');
 name.classList.add('name');
 userName.classList.add('username');
 
-return newCard;
+// adding contents // 
+userImg.src = data.avatar_url;
+name.textContent = data.name;
+userName.textContent = data.login;
+userLocation.textContent = data.location;
+userLink.href = data.html_url;
+userProfile.textContent = `Profile: ${userLink.href}`;
+userFollowers.textContent = data.followers;
+userFollowing.textContent = data.following;
+userBio.textContent = data.bio;
+
+return card;
 
 };
+
 
 
 /* List of LS Instructors Github username's: 
