@@ -54,6 +54,8 @@ const followersArray = [];
 </div>
 */
 function createCard (data){
+ 
+// crearting elements //
 const newCard = document.createElement('div');
 const userImg = document.createElement('img');
 const cardInfo = document.createElement('div');
@@ -66,8 +68,23 @@ const userFollowers = document.createElement('p');
 const userFollowing = document.createElement('p');
 const userBio = document.createElement('p');
 
+// attaching Elements //
+newCard.appendChild(userImg);
+newCard.appendChild(cardInfo);
+cardInfo.appendChild(name);
+cardInfo.appendChild(userName);
+cardInfo.appendChild(userLocation);
+cardInfo.appendChild(userProfile);
+userProfile.appendChild(userLink);
+cardInfo.appendChild(userFollowers);
+cardInfo.appendChild(userFollowing);
+cardInfo.appendChild(userBio);
 
-
+// adding classes //
+newCard.classList.add('card');
+cardInfo.classList.add('card-info');
+name.classList.add('name');
+userName.classList.add('username');
 
 return newCard;
 
